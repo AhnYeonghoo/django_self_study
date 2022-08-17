@@ -11,15 +11,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os
-
-import environ
+import os, environ
 env = environ.Env(
+    # set casting, default value
     DEBUG=(bool, False)
 )
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 environ.Env.read_env(
@@ -30,7 +27,7 @@ environ.Env.read_env(
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'vxgi1z3r&liqm&w*z_wnlcpx4!&zcuf!+3219jb4_9dipi%3vl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -61,11 +58,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'private.urls'
-
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -13,5 +13,6 @@
 - Django 3.1.3
 - MariaDB
 - Docker
+- BootStrap
 - Git(Version Control)
 - OpenSource
